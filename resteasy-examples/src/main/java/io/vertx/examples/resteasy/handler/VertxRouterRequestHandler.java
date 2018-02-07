@@ -2,13 +2,13 @@ package io.vertx.examples.resteasy.handler;
 
 import io.netty.buffer.ByteBufInputStream;
 import io.vertx.core.Context;
+import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.RoutingContext;
 import org.jboss.resteasy.core.SynchronousDispatcher;
 import org.jboss.resteasy.plugins.server.embedded.SecurityDomain;
-import org.jboss.resteasy.plugins.server.vertx.RequestDispatcher;
 import org.jboss.resteasy.plugins.server.vertx.VertxHttpRequest;
 import org.jboss.resteasy.plugins.server.vertx.VertxHttpResponse;
 import org.jboss.resteasy.plugins.server.vertx.VertxUtil;
@@ -24,7 +24,7 @@ import java.io.IOException;
 /**
  * Created by numbcode@gmail.com on 2018/2/7.
  */
-public class VertxRouterRequestHandler {
+public class VertxRouterRequestHandler implements Handler<RoutingContext> {
   private final Vertx vertx;
   protected final RouterRequestDispatcher dispatcher;
   private final String servletMappingPrefix;
@@ -35,7 +35,8 @@ public class VertxRouterRequestHandler {
     this.servletMappingPrefix = servletMappingPrefix;
   }
 
-  public void handle(HttpServerRequest request, RoutingContext routingContext) {
+  public void handle(RoutingContext routingContext) {
+    HttpServerRequest request = routingContext.request();
     request.bodyHandler(buff -> {
       Context ctx = vertx.getOrCreateContext();
       ResteasyUriInfo uriInfo = VertxUtil.extractUriInfo(request, servletMappingPrefix);

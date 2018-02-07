@@ -26,11 +26,8 @@ public class Server extends AbstractVerticle {
     deployment.getRegistry().addPerInstanceResource(HelloWorldService.class);
 
     Router router = Router.router(vertx);
-    VertxRouterRequestHandler handler = new VertxRouterRequestHandler(vertx, deployment, "", null);
 
-    router.route().handler(routingContext -> {
-      handler.handle(routingContext.request(), routingContext);
-    });
+    router.route().handler(new VertxRouterRequestHandler(vertx, deployment, "", null));
 
 
     // Start the front end server using the Jax-RS controller

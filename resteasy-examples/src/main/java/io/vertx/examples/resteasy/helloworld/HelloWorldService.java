@@ -8,16 +8,18 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
-@Path("/")
+@Path("/hello")
 public class HelloWorldService {
 
   @GET
   @Path("/{name:.*}")
   public Response doGet(@PathParam("name") String name, @Context RoutingContext routingContext) {
-    if (name == null || name.isEmpty()) {
-      name = "World";
-    }
-    System.err.println(routingContext.request().absoluteURI());
-    return Response.status(200).entity("Hello " + name).build();
+    return Response.status(200).entity("Hello " + routingContext.request().absoluteURI()).build();
+  }
+
+  @GET
+  @Path("/hhhh")
+  public Response doGet(@Context RoutingContext routingContext) {
+    return Response.status(200).entity(routingContext.request().absoluteURI()).build();
   }
 }
