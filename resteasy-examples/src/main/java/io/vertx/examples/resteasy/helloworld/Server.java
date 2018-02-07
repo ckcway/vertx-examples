@@ -1,10 +1,11 @@
 package io.vertx.examples.resteasy.helloworld;
 
 import io.vertx.core.AbstractVerticle;
-import io.vertx.examples.resteasy.handler.VertxRouterRequestHandler;
+import io.vertx.core.Future;
+import io.vertx.examples.resteasy.handler.RestEasyHandler;
+import io.vertx.examples.resteasy.handler.RestEasyHandlerImpl;
 import io.vertx.examples.resteasy.util.Runner;
 import io.vertx.ext.web.Router;
-import org.jboss.resteasy.plugins.server.vertx.VertxRequestHandler;
 import org.jboss.resteasy.plugins.server.vertx.VertxResteasyDeployment;
 
 /*
@@ -26,9 +27,7 @@ public class Server extends AbstractVerticle {
     deployment.getRegistry().addPerInstanceResource(HelloWorldService.class);
 
     Router router = Router.router(vertx);
-
-    router.route().handler(new VertxRouterRequestHandler(vertx, deployment, "", null));
-
+    router.route().handler(RestEasyHandler.create(vertx, deployment));
 
     // Start the front end server using the Jax-RS controller
     vertx.createHttpServer()

@@ -2,7 +2,6 @@ package io.vertx.examples.resteasy.handler;
 
 import io.netty.buffer.ByteBufInputStream;
 import io.vertx.core.Context;
-import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
@@ -24,12 +23,12 @@ import java.io.IOException;
 /**
  * Created by numbcode@gmail.com on 2018/2/7.
  */
-public class VertxRouterRequestHandler implements Handler<RoutingContext> {
+public class RestEasyHandlerImpl implements RestEasyHandler{
   private final Vertx vertx;
   protected final RouterRequestDispatcher dispatcher;
   private final String servletMappingPrefix;
 
-  public VertxRouterRequestHandler(Vertx vertx, ResteasyDeployment deployment, String servletMappingPrefix, SecurityDomain domain) {
+  public RestEasyHandlerImpl(Vertx vertx, ResteasyDeployment deployment, String servletMappingPrefix, SecurityDomain domain) {
     this.vertx = vertx;
     this.dispatcher = new RouterRequestDispatcher((SynchronousDispatcher) deployment.getDispatcher(), deployment.getProviderFactory(), domain);
     this.servletMappingPrefix = servletMappingPrefix;
