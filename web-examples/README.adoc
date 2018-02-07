@@ -167,7 +167,7 @@ When you get the index page in your browser you should see it update every secon
 == Real-time - chat service
 
 This example demonstrates 2-way communication between the client and the server using the event bus bridge
-and web sockets. 
+and web sockets.
 
 The link:src/main/java/io/vertx/example/web/chat/Server.java[Java real-time chat example]
 
@@ -175,10 +175,10 @@ The link:src/main/java/io/vertx/example/web/chat/webroot/index.html[index.html] 
 bootstraps the vertxbus.js bridge from the client and uses jQuery to handle manipulating
 the DOM and registering event handlers.
 
-When you load the index page in a browser, you should see a div for chat messages and 
-an input field where you can enter your own messages. Typing in the input field and 
+When you load the index page in a browser, you should see a div for chat messages and
+an input field where you can enter your own messages. Typing in the input field and
 pressing ENTER will cause the input to be sent via the event bus to the server. The server
-will accept the message, prepend it with a timestamp and publish back to all registered 
+will accept the message, prepend it with a timestamp and publish back to all registered
 listeners (e.g. All connected clients). Take note of the addInboundPermitted and addOutboundPermitted
 settings on the BridgeOptions object to be sure that you authorize the correct messages
 to traverse the event bus bridge in the appropriate direction.
@@ -404,3 +404,23 @@ Important files to note:
 
 Run the server either in your IDE or on the command line, then open your browser and hit
 link:http://localhost:8080 and chat with a couple of browser windows!
+
+== OAuth2
+
+The OAuth2 example is a simplified interaction with GitHub OAuth2 server. It will
+show how to secure and authenticate users, plus requesting specific authorities:
+
+* `user:email`
+
+Plus how to interact with secured resources using the user object directly.
+
+The link:src/main/java/io/vertx/example/web/oauth2/Server.java[OAuth2 example]
+
+== HTTP Request Validation and OpenAPI 3 Router Factory
+
+The link:src/main/java/io/vertx/example/web/validation/ValidationExampleServer.java[ValidationExampleServer] is an
+example of various usages of validation capabilities included in
+link:http://vertx.io/docs/#web[Vert.x Web API Contract package]
+
+The link:src/main/java/io/vertx/example/web/openapi3/OpenAPI3Server.java[OpenAPI3Server] is an example of
+OpenAPI3RouterFactory, the interface to build your design driven router based on your OpenAPI specification.

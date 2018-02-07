@@ -148,6 +148,12 @@ your Vert.x (or other asynchronous) applications.
 
 The link:unit-examples/README.adoc[Vert.x Unit examples] shows how to use Vert.x Unit.
 
+=== Vert.x JUnit 5 examples
+
+The `vertx-junit5` modules allows testing Vert.x asynchronous operations with JUnit 5.
+
+See link:junit5-examples/README.adoc[Vert.x JUnit 5 examples].
+
 === RxJava examples
 
 Vert.x for RxJava provides most of its APIs as RxJava so you can use those if you prefer.
@@ -160,6 +166,11 @@ The link:rx-examples/README.adoc[Vert.x RxJava examples] contains a wide range o
 
 The link:grpc-examples/README.adoc[Vert.x gRPC Examples] show how you can implement a gRPC service and invoke a gRPC service with Vert.x.
 
+=== Kotlin examples
+
+The link:kotlin-examples/README.adoc[Vert.x Kotlin Examples] shows a few examples with Kotlin such a REST application,
+Kotlin coroutines and usage of https://github.com/kotlintest/kotlintest[KotlinTest].
+
 === Mail examples
 
 The link:mail-examples/README.adoc[Vert.x Mail examples]
@@ -170,20 +181,24 @@ tls, ssl etc. The examples either use `localhost:25` to send a mail or use host
 `mail.example.com`. To actually run the examples you will have to change the
 mail server and the user credentials in the `MailLogin` example.
 
-==== Maven Service Factory examples
+=== Maven Service Factory examples
 
 The link:maven-service-factory-examples[Vert.x Maven service factory examples] shows how to package a verticle that
 can be deployed using the Maven Service Factory. Such a deployment is also demonstrated using either the command line
 or the api.
 
-==== Service Proxy Examples
+=== Service Proxy Examples
 
 The link:service-proxy-examples/README.adoc[Vert.x Service Proxy examples] contains an example of service proxy usage.
 It depicts how a service provider can be implemented and how the published service can be consumed.
 
-==== OSGi Examples
+=== OSGi Examples
 
 The link:osgi-examples/README.adoc[Vert.x OSGi examples] contains a few examples using Vert.x in an OSGi context.
+
+=== Cloud Foundry examples
+
+The link:cloudfoundry-examples/README.adoc[Vert.x Cloud Foundry example] shows how to deploy Vert.x application to a Cloud Foundry service or platform of your choice.
 
 === Docker examples
 
@@ -221,21 +236,39 @@ client.
 The link:kafka-examples/README.adoc[Vert.x Kafka Examples] shows how you can interact Kafka using the vert.x Kafka
 client.
 
-=== JCA example
+=== MQTT example
 
-The Vert.x JCA Example project provides a JEE compliant application that enables to you deploy the application into a
- [Wildfly](http://wildfly.org) application server. While simple in implementation, the link:jca-examples[JCA examples]
- provides a good point of departure for your own development.
+The link:mqtt-examples/README.adoc[Vert.x MQTT Examples] shows how you can write MQTT servers and clients using Vert.x MQTT.
+
+==== Service Proxy Examples
+
+The link:service-proxy-examples/README.adoc[Vert.x Service Proxy examples] contains an example of service proxy usage.
+It depicts how a service provider can be implemented and how the published service can be consumed.
 
 === AMQP Bridge examples
 
 The link:amqp-bridge-examples/README.adoc[Vert.x AMQP Bridge Examples] show how you can interact with AMQP 1.0 servers using the Vert.x AMQP Bridge.
+
+=== Java 9 examples
+
+This link:java9-examples/README.adoc[Java 9 examples] shows how a simple Java 9 modular application using Vert.x as anonymous modules.
+
+=== Vert.x fatjar examples
+
+The link:fatjar-examples/README.adoc[Vert.x fatjar Examples] show how you can build fatjar with Maven or Gradle.
+
+=== Http/2 Showcase
+
+This link:http2-showcase/README.md[HTTP/2 Showcase] application highlights the benefits of HTTP/2 when dealing with latency on the web.
 
 === Camel Bridge examples
 
 The link:camel-bridge-examples/README.adoc[Vert.x Camel Bridge Examples] show how you can use Apache Camel routes from
 the event bus.
 
-=== Vert.x fatjar examples
+=== JCA example
 
-The link:fatjar-examples/README.adoc[Vert.x fatjar Examples] show how you can build fatjar with Maven or Gradle.
+The Vert.x JCA Example project provides a JEE compliant application that enables to you deploy the application into a
+ [Wildfly](http://wildfly.org) application server. While simple in implementation, the link:jca-examples[JCA examples]
+ provides a good point of departure for your own development.
+

@@ -6,7 +6,7 @@
 
   <groupId>io.vertx</groupId>
   <artifactId>grpc-examples</artifactId>
-  <version>3.4.1</version>
+  <version>3.5.0</version>
 
   <properties>
     <vertx.grpc.version>1.1.2</vertx.grpc.version>
@@ -32,6 +32,12 @@
       <artifactId>examples-utils</artifactId>
       <version>${project.version}</version>
       <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-tcnative-boringssl-static</artifactId>
+      <version>2.0.6.Final</version>
     </dependency>
 
     <dependency>
@@ -103,7 +109,7 @@
       <repositories>
         <repository>
           <id>staging</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+          <url>https://oss.sonatype.org/content/repositories/iovertx-3720/</url>
         </repository>
       </repositories>
     </profile>
